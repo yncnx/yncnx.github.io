@@ -13,14 +13,16 @@
       
       <categories>
           
-          <category> 教程 /* 文章分类*/ </category>
+          <category> 教程 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> /* 文章标签*/ - GitHub - Hexo </tag>
+            <tag> GitHub </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
@@ -161,9 +163,9 @@
       
         <tags>
             
-            <tag> jsDelivr </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> jsDelivr </tag>
             
             <tag> CDN </tag>
             
