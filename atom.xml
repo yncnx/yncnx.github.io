@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Palpitate</title>
+  
+  <subtitle>风无定相，云无常态。</subtitle>
+  <link href="https://blog.unto.eu.org/atom.xml" rel="self"/>
+  
+  <link href="https://blog.unto.eu.org/"/>
+  <updated>2024-11-13T03:40:40.720Z</updated>
+  <id>https://blog.unto.eu.org/</id>
+  
+  <author>
+    <name>因是</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用ensp模拟器中的防火墙（USG6000V）配置NAT</title>
+    <link href="https://blog.unto.eu.org/posts/b8d26614/"/>
+    <id>https://blog.unto.eu.org/posts/b8d26614/</id>
+    <published>2023-09-20T04:26:03.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;NAT介绍&quot;&gt;&lt;a href=&quot;#NAT介绍&quot; class=&quot;headerlink&quot; title=&quot;NAT介绍&quot;&gt;&lt;/a&gt;NAT介绍&lt;/h4&gt;&lt;h5 id=&quot;NAT（Network-Address-Translation，网络地址转换）：&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="记录" scheme="https://blog.unto.eu.org/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="ensp" scheme="https://blog.unto.eu.org/tags/ensp/"/>
+    
+    <category term="防火墙" scheme="https://blog.unto.eu.org/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
+    
+    <category term="NAT" scheme="https://blog.unto.eu.org/tags/NAT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言 基本输入输出函数</title>
+    <link href="https://blog.unto.eu.org/posts/d04fe4f1/"/>
+    <id>https://blog.unto.eu.org/posts/d04fe4f1/</id>
+    <published>2023-09-18T14:47:48.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;在学习了几种C语言输入输出函数，如下列出：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;printf 与 scanf&lt;/li&gt;
+&lt;li&gt;getchar 与</summary>
+        
+      
+    
+    
+    
+    <category term="记录" scheme="https://blog.unto.eu.org/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="C语言" scheme="https://blog.unto.eu.org/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="函数" scheme="https://blog.unto.eu.org/tags/%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="编程" scheme="https://blog.unto.eu.org/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用GitHub Actions自动部署Hexo</title>
+    <link href="https://blog.unto.eu.org/posts/c71308be/"/>
+    <id>https://blog.unto.eu.org/posts/c71308be/</id>
+    <published>2023-08-05T14:19:29.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;之前每次部署 &lt;code&gt;Hexo&lt;/code&gt; 都需要运行 &lt;code&gt;hexo cl &amp;amp; hexo g &amp;amp; hexo</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.unto.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="GitHub" scheme="https://blog.unto.eu.org/tags/GitHub/"/>
+    
+    <category term="Hexo" scheme="https://blog.unto.eu.org/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-Matery主题配置Twikoo评论系统</title>
+    <link href="https://blog.unto.eu.org/posts/d2ab7f2a/"/>
+    <id>https://blog.unto.eu.org/posts/d2ab7f2a/</id>
+    <published>2023-08-01T12:49:33.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Twikoo是一个简洁、安全、免费的静态网站评论系统。有部署有数种方式，其他部署方式要么收费，要么需要服务器，本次选择Vercel</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.unto.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Matery" scheme="https://blog.unto.eu.org/tags/Matery/"/>
+    
+    <category term="Blog" scheme="https://blog.unto.eu.org/tags/Blog/"/>
+    
+    <category term="Twikoo" scheme="https://blog.unto.eu.org/tags/Twikoo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 GitHub Actions 云编译OpenWrt</title>
+    <link href="https://blog.unto.eu.org/posts/a839bc6b/"/>
+    <id>https://blog.unto.eu.org/posts/a839bc6b/</id>
+    <published>2022-01-15T14:45:06.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;​		&lt;a href=&quot;https://docs.github.com/cn/actions&quot;&gt;GitHub Actions&lt;/a&gt; 是</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.unto.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="GitHub" scheme="https://blog.unto.eu.org/tags/GitHub/"/>
+    
+    <category term="路由器" scheme="https://blog.unto.eu.org/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+    <category term="Openwrt" scheme="https://blog.unto.eu.org/tags/Openwrt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redmi AC2100刷写Openwrt教程</title>
+    <link href="https://blog.unto.eu.org/posts/d224e079/"/>
+    <id>https://blog.unto.eu.org/posts/d224e079/</id>
+    <published>2021-12-27T09:39:32.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;​        此教程的书写基于 Redmi AC2100 路由器，并不保证其他路由器可用。推荐使用 Windows</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.unto.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="路由器" scheme="https://blog.unto.eu.org/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+    <category term="AC2100" scheme="https://blog.unto.eu.org/tags/AC2100/"/>
+    
+    <category term="Openwrt" scheme="https://blog.unto.eu.org/tags/Openwrt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Onedrive目录程序——OneManager搭建详细教程</title>
+    <link href="https://blog.unto.eu.org/posts/ca093fb9/"/>
+    <id>https://blog.unto.eu.org/posts/ca093fb9/</id>
+    <published>2021-12-16T13:17:35.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;首先感谢&lt;a href=&quot;https://github.com/qkqpttgf&quot;&gt;qkqpttgf&lt;/a&gt;这位大佬开发的&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.unto.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Onedrive" scheme="https://blog.unto.eu.org/tags/Onedrive/"/>
+    
+    <category term="OneManager" scheme="https://blog.unto.eu.org/tags/OneManager/"/>
+    
+    <category term="网盘" scheme="https://blog.unto.eu.org/tags/%E7%BD%91%E7%9B%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 jsDelivr CDN加速 GitHub Pages 博客的静态资源</title>
+    <link href="https://blog.unto.eu.org/posts/bf2f1bbe/"/>
+    <id>https://blog.unto.eu.org/posts/bf2f1bbe/</id>
+    <published>2021-12-16T11:02:38.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;CDN加速&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;​		CDN的全称是Content Delivery</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.unto.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="GitHub" scheme="https://blog.unto.eu.org/tags/GitHub/"/>
+    
+    <category term="jsDelivr" scheme="https://blog.unto.eu.org/tags/jsDelivr/"/>
+    
+    <category term="CDN" scheme="https://blog.unto.eu.org/tags/CDN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+Matery-主题个性化修改二</title>
+    <link href="https://blog.unto.eu.org/posts/a1c374f3/"/>
+    <id>https://blog.unto.eu.org/posts/a1c374f3/</id>
+    <published>2021-12-12T15:05:59.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一-添加动态诗词&quot;&gt;&lt;a href=&quot;#一-添加动态诗词&quot; class=&quot;headerlink&quot; title=&quot;一.添加动态诗词&quot;&gt;&lt;/a&gt;一.添加动态诗词&lt;/h4&gt;&lt;p&gt;​		打开</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.unto.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Hexo" scheme="https://blog.unto.eu.org/tags/Hexo/"/>
+    
+    <category term="Matery" scheme="https://blog.unto.eu.org/tags/Matery/"/>
+    
+    <category term="Blog" scheme="https://blog.unto.eu.org/tags/Blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+Matery-主题个性化修改一</title>
+    <link href="https://blog.unto.eu.org/posts/9a435a5a/"/>
+    <id>https://blog.unto.eu.org/posts/9a435a5a/</id>
+    <published>2021-12-12T11:14:25.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一-修改主题的-logo-图和-favicon-图标&quot;&gt;&lt;a href=&quot;#一-修改主题的-logo-图和-favicon-图标&quot; class=&quot;headerlink&quot; title=&quot;一.修改主题的 logo 图和 favicon 图标&quot;&gt;&lt;/a&gt;一.修改主题的</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.unto.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Hexo" scheme="https://blog.unto.eu.org/tags/Hexo/"/>
+    
+    <category term="Matery" scheme="https://blog.unto.eu.org/tags/Matery/"/>
+    
+    <category term="Blog" scheme="https://blog.unto.eu.org/tags/Blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+Matery主题基础修改</title>
+    <link href="https://blog.unto.eu.org/posts/588ed204/"/>
+    <id>https://blog.unto.eu.org/posts/588ed204/</id>
+    <published>2021-12-12T08:12:21.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;请根据个人需要添加不同的插件及功能&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​		⛔首先声明一下，一定要分清什么是站点配置文件，什么是主题文件，站点配置文件的为&lt;code&gt;Hexo根目录&lt;/code&gt;下的&lt;code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.unto.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Hexo" scheme="https://blog.unto.eu.org/tags/Hexo/"/>
+    
+    <category term="Matery" scheme="https://blog.unto.eu.org/tags/Matery/"/>
+    
+    <category term="Blog" scheme="https://blog.unto.eu.org/tags/Blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原生安卓WiFi信号去叹号去叉教程5.0-Android P</title>
+    <link href="https://blog.unto.eu.org/posts/91851bc6/"/>
+    <id>https://blog.unto.eu.org/posts/91851bc6/</id>
+    <published>2021-12-11T08:52:16.000Z</published>
+    <updated>2024-11-13T03:40:40.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;原生安卓WiFi信号叹号和叉的原因&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;Captive</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.unto.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="安卓" scheme="https://blog.unto.eu.org/tags/%E5%AE%89%E5%8D%93/"/>
+    
+    <category term="修复" scheme="https://blog.unto.eu.org/tags/%E4%BF%AE%E5%A4%8D/"/>
+    
+  </entry>
+  
+</feed>

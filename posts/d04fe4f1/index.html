@@ -1,0 +1,840 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>C语言 基本输入输出函数 | Palpitate</title><meta name="keywords" content="C语言,函数,编程"><meta name="author" content="因是"><meta name="copyright" content="因是"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="C语言 基本输入输出函数"><meta name="application-name" content="C语言 基本输入输出函数"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="C语言 基本输入输出函数"><meta property="og:url" content="https://blog.unto.eu.org/posts/d04fe4f1/index.html"><meta property="og:site_name" content="Palpitate"><meta property="og:description" content="前言在学习了几种C语言输入输出函数，如下列出：  printf 与 scanf getchar 与 putchar gets 与 puts  相比之下 printf 与 scanf的功能最为强大，但操作稍显复杂，后两种则功能简单，但针对性较强。做一下记录以备查询。 printf函数功能：按照规定格式"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/9.webp?_r_=74c0af08-263d-f0e4-076b-2c58ad8b477e"><meta property="article:author" content="因是"><meta property="article:tag" content="HTML, CSS, JavaScript, JQuery, Vue.js, Blog"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/9.webp?_r_=74c0af08-263d-f0e4-076b-2c58ad8b477e"><meta name="description" content="前言在学习了几种C语言输入输出函数，如下列出：  printf 与 scanf getchar 与 putchar gets 与 puts  相比之下 printf 与 scanf的功能最为强大，但操作稍显复杂，后两种则功能简单，但针对性较强。做一下记录以备查询。 printf函数功能：按照规定格式"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/favicon.ico"><link rel="canonical" href="https://blog.unto.eu.org/posts/d04fe4f1/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//static.cloudflareinsights.com"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4861be86c81e54f48a4f40bee682f5fb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-S3XQ7SSTWR"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-S3XQ7SSTWR');
+</script><script defer="defer" data-pjax="data-pjax" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;11eb34c8ca0940dcb7a51c3c61f9916d&quot;}"></script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "i9deg5k2eq");</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"与数百名博主无限进步","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: undefined,
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: 'https://twikoo-one-swart.vercel.app',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"距离上次更新已有","messageNext":"天，文章内容可能已经过时。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 因是","link":"链接: ","source":"来源: Palpitate","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: {"enable":true,"delay":100,"shiftDelay":200},
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Palpitate',
+  title: 'C语言 基本输入输出函数',
+  postAI: '',
+  pageFillDescription: '前言, printf函数, 功能：按照规定格式输出指定数据, 格式说明如图, 常见格式输出, %d格式符, %c格式符, %s格式符, %f格式符, %e格式符, %o、%x和%u格式符, %g格式符, 使用printf的注意事项, scanf函数, 功能：要求用户从键盘上输入指定格式的数据。, scanf格式控制, scanf函数的格式字符串的组成, 使用scanf注意事项, scanf使用示例, 字符输入输出（getcharx2Fputchar）, putchar, putchar函数的一般格式：, 可以输出的字符类型：, getchar, getchar函数的一般格式是：, 字符串输入输出函数 （gets与puts）, 4puts, gets前言在学习了几种语言输入输出函数如下列出与与与相比之下与的功能最为强大但操作稍显复杂后两种则功能简单但针对性较强做一下记录以备查询函数功能按照规定格式输出指定数据一般形式如图格式控制由后跟格式字符组成将输出数据转换为指定格式输出字符串原样输出转义字符对输出形式进行控制格式说明如图附加格式说明字符说明输出的数字或字符以左对齐右边填空格数字输出的空位用填充一个正整数输出数据的字段宽度如果实际位数多于按实际位数输出如果实际位数少于则补以空格或一个正整数对实数表示输出位小数对字符串表示截取的字符个数字母输出长整型整数常见格式输出以带符号的十进制形式输出整数以无符号的八进制形式输出整数以无符号的十六进制形式输出整数以无符号的十进制形式输出整数以字符形式输出单个字符输出字符串以小数点形式输出单双精度实数以标准指数形式输出单双精度实数选用输出宽度较小的格式输出实数格式符格式说明按整型数据的实际长度输出以指定的字段宽度输出如果数据的位数小于则左端补以空格若前面有则左端补以以指定的字段宽度输出左对齐输出长整型数据格式符格式说明输出一个字符输出数据可以是单个字符或一个范围在之间的整数例格式符格式说明直接输出指定字符串输出字符串占列右对齐小于字符串长度时原样输出大于字符串长度时不足补空格下同输出字符串占列左对齐输出字符串前个字符占列右对齐例输出结果格式符格式说明整数部分全部输出小数部分输出位四舍五入右边补满足小数位数或左边补满足列输出数据共占列小数占位右对齐只有时当大于字符串长度则需补足列当小于字符串长度则与同输出数据共占列小数占位左对齐以双精度输出例格式符格式说明输出数据共占位其中整数部分为位非零数字小数点占位小数部分为位指数部分占位指数符号占位指数为位若输出数据为负数还应增加一位整数部分的符号位输出占列小数位为项四舍五入小于输出宽度时原样输出大于输出宽度时补足空位设置左对齐如下图例和格式符格式或说明将内存单元中的二进制数包括符号位直接转换成八进制数十六进制或十进制数输出输出无符号八进制输出无符号十六进制输出无符号十进制例例字节限定了字符为位一个字节有符号十进制字符型无符号十进制字符型限定了位个字节字节限定了位个字节字节限定了位个字节指数输出输出十六进制的指数形式格式符根据数值的大小自动选择用格式或格式输出实数输出时选择占宽度较小的一种且不输出无意义的零例使用的注意事项不同类型的数据应使用相应类型的格式字符说明其输出形式以保证显示结果符合预期格式字符中除了外其他均用小写字母如不能写成如需输出双引号应在格式控制中表示为转义字符的形式并用单引号引起来即如需输出字符在格式控制中用连续两个即可如当格式控制中格式符个数少于输出表中的输出项时多余的输出项不予输出当格式符多于输出项时多出的格式符输出结果为不定值函数与函数一样函数也是遵守格式化原则所谓格式化是该函数预先给程序员定义了一批输入格式程序员可以选择其中的某些格式遵守这些格式函数就可以按照指定的格式来接收键盘的输入数据了函数只能在控制台程序中使用有窗口的界面程序无法通过接收按键当控制台中出现闪烁的光标时表示程序在等待用户输入数据在控制台程序中一般以回车键代表数据输入完毕下达命令指示程序开始工作函数可以接收多个任意类型的数据但需严格遵守格式否则会出错功能要求用户从键盘上输入指定格式的数据一般形式如图功能要求用户从键盘上输入指定格式的数据说明如果数据不止一个应在数据之间用一个或多个空格间隔也可以用回车键或跳格键间隔格式控制格式控制格式符说明用于输入十进制整数用于输入八进制形整数用于输入十六进制整数用于输入一个字符用于输入字符串并将字符串送到一个字符数组中输入时以非空白字符开始第一个空白字符结束字符串以串结束标志作为其最后一个字符用于输入实数输入时用小数点形式或指数形式均可输入双精度必须用否则不能正常输入与作用相同附加格式格式字符说明表示本输入项在输入后不赋给相应的变量不存储字母用于输入长整型和双精度实型数据一个正整数用于输入长整型和双精度实型数据函数的格式字符串的组成格式符和函数类似函数的格式字符串以开始以一个格式字符结束中间可以插入附加字符格式符告诉了函数该读取什么样的数据空白符空白符可以是空格用空格键输入制表符用键输入和新行符用回车键输入或者它们的组合非空白符除去格式说明符合空白符之外就是非空白符非空白符在用户输入的时候也必须一并输入非空白符使在缓冲区中读一个匹配的字符并将这个字符忽略例如使先读入一个整数接着必须要读入一个逗号读入到逗号后表示格式匹配将读入的逗号丢弃而不像读入的整数存储到某个内存空间读入逗号后接着读入另一个整数如发现不能匹配格式字符串比如没有读到逗号返回读入失败使用注意事项注意变量表列中应该是变量的地址变量的地址通过求地址符得到所以在写代码时千万不要遗漏符号如果格式字符串中有非空白字符也就是除了格式控制字符和空白字符之外的字符则用户在输入的时候一定也要输入这些字符否则将出现不匹配格式控制字符串的情况为了使用户正确输入编程时一定要考虑到用户是否清楚如何输入最好在需要用户输入前提示如何输入的格式在用格式符时空格字符和转义字符都被当作有效字符输入以回车作为下达开始解析命令整个输入以回车结束如果输入的数据满足了对需要则输入结束如果回车后数据不够则回车只当作一个空白符解析数据下列情况认为解析出来一个数据读入非字符型数据时遇到空白字符有宽度指示时读入到相应的宽度如则只解析个数字即认为读入这个整数完毕读取双精度浮点数时最好使用输入使用可能会导致精度损失甚至读取失败使用示例可以指定输入的数据所占据的字符个数函数自动按照指示截取所需长度的数据如输入输出后面的格式符用来表示在解析时将读入的数据忽略不赋给任何变量如输入输出输入数据时不能指定精度如输入输出输入双精度数使用输入双精度浮点数时务必用如下错误输入输出字符输入输出有些时候仅仅为了在显示器屏幕上打印或从控制台获取一个字符此时使用功能强大的与函数则显得过于繁琐提供了一个库函数来完成这个简单的任务函数是字符输出函数其功能是在显示器上打印单个字符函数是一个标准的语言库函数它的函数原型在头文件中函数的一般格式字符数据其中的是函数名称可以输出的字符类型字符数据可以是一个字符型变量如字符数据也可以是一个字符常量如输出结果字符数据还可以是一个整数整数可以是十进制整数如输出结果字符数据还可以是一个表达式只要结果是以内的整数即可如输出结果字符数据可以是转义字符如结果输出一个换行输出一个提示音这个函数和前面介绍的函数刚好相反函数是得到字符输入函数其功能是得到用户输入的一个字符函数是一个标准的语言库函数它的函数原型在头文件中函数的一般格式是用户输入的字符就赋给了变量如获取输入的字符字符串输入输出函数与函数功能非常单一在显示器屏幕上输出一个字符串并换行一般形式字符串如你好啊输出结果你好啊从标准输入设备读字符串函数可以无限读取不会判断上限以回车结束读取所以程序员应该确保的空间足够大以便在执行读操作时不发生溢出此函数在头文件中定义的功能从流中读取字符串直至接受到换行符或时停止并将读取的结果存放在指针所指向的字符数组中换行符不作为读取串的内容读取的换行符被转换为空字符并由此来结束字符串返回值读入成功返回与参数相同的指针读入过程中遇到或发生错误返回指针所以在遇到返回值为的情况要用或函数检查是发生错误还是遇到示例不要然后这是错误的因为没有指向有效的内存它可能指向任何非法地址造成非法访问异常与类似的还有与它们一般用于对文件的操作',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-13 11:40:40',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Palpitate" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Palpitate" type="application/rss+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/avatar.webp"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.yncn.eu.org/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">工具</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://cn.office-converter.com/" title="Converter转换器"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cn.office-converter.com/favicon.ico" alt="Converter转换器"/><span class="back-menu-item-text">Converter转换器</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.deepl.com/translator" title="DeepL翻译"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://static.deepl.com/img/favicon/favicon_96.png" alt="DeepL翻译"/><span class="back-menu-item-text">DeepL翻译</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://smms.app/" title="SM.MS图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://smms.app/assets/images/og.png" alt="SM.MS图床"/><span class="back-menu-item-text">SM.MS图床</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://ai.yncn.eu.org/" title="CF AI Web"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/favicon.ico" alt="CF AI Web"/><span class="back-menu-item-text">CF AI Web</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">Palpitate</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=1018898283&amp;server=tencent"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/reward/wechat.webp" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/reward/wechat.webp"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/reward/alipay.webp" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/reward/alipay.webp"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AC2100/" style="font-size: 1.05rem;">AC2100<sup>1</sup></a><a href="/tags/Blog/" style="font-size: 1.05rem;">Blog<sup>4</sup></a><a href="/tags/CDN/" style="font-size: 1.05rem;">CDN<sup>1</sup></a><a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.05rem;">C语言<sup>1</sup></a><a href="/tags/GitHub/" style="font-size: 1.05rem;">GitHub<sup>3</sup></a><a href="/tags/Hexo/" style="font-size: 1.05rem;">Hexo<sup>4</sup></a><a href="/tags/Matery/" style="font-size: 1.05rem;">Matery<sup>4</sup></a><a href="/tags/NAT/" style="font-size: 1.05rem;">NAT<sup>1</sup></a><a href="/tags/OneManager/" style="font-size: 1.05rem;">OneManager<sup>1</sup></a><a href="/tags/Onedrive/" style="font-size: 1.05rem;">Onedrive<sup>1</sup></a><a href="/tags/Openwrt/" style="font-size: 1.05rem;">Openwrt<sup>2</sup></a><a href="/tags/Twikoo/" style="font-size: 1.05rem;">Twikoo<sup>1</sup></a><a href="/tags/ensp/" style="font-size: 1.05rem;">ensp<sup>1</sup></a><a href="/tags/jsDelivr/" style="font-size: 1.05rem;">jsDelivr<sup>1</sup></a><a href="/tags/%E4%BF%AE%E5%A4%8D/" style="font-size: 1.05rem;">修复<sup>1</sup></a><a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 1.05rem;">函数<sup>1</sup></a><a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 1.05rem;">安卓<sup>1</sup></a><a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 1.05rem;">编程<sup>1</sup></a><a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 1.05rem;">网盘<sup>1</sup></a><a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 1.05rem;">路由器<sup>2</sup></a><a href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99/" style="font-size: 1.05rem;">防火墙<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">7</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="anzhiyu.keyboardToggle()" title="快捷键开关"><a class="keyboard-switch"><i class="anzhiyufont anzhiyu-icon-keyboard"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url">记录</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>C语言</span></a><a class="article-meta__tags" href="/tags/%E5%87%BD%E6%95%B0/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>函数</span></a><a class="article-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>编程</span></a></span></div></div><h1 class="post-title" itemprop="name headline">C语言 基本输入输出函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-09-18T14:47:48.000Z" title="发表于 2023-09-18 22:47:48">2023-09-18</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-11-13T03:40:40.720Z" title="更新于 2024-11-13 11:40:40">2024-11-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">3.8k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="C语言 基本输入输出函数"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为云南"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>云南</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/9.webp?_r_=74c0af08-263d-f0e4-076b-2c58ad8b477e"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://blog.unto.eu.org/posts/d04fe4f1/"><header><a class="post-meta-categories" href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url">记录</a><a href="/tags/C%E8%AF%AD%E8%A8%80/" tabindex="-1" itemprop="url">C语言</a><a href="/tags/%E5%87%BD%E6%95%B0/" tabindex="-1" itemprop="url">函数</a><a href="/tags/%E7%BC%96%E7%A8%8B/" tabindex="-1" itemprop="url">编程</a><h1 id="CrawlerTitle" itemprop="name headline">C语言 基本输入输出函数</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">因是</span><time itemprop="dateCreated datePublished" datetime="2023-09-18T14:47:48.000Z" title="发表于 2023-09-18 22:47:48">2023-09-18</time><time itemprop="dateCreated datePublished" datetime="2024-11-13T03:40:40.720Z" title="更新于 2024-11-13 11:40:40">2024-11-13</time></header><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在学习了几种C语言输入输出函数，如下列出：</p>
+<ul>
+<li>printf 与 scanf</li>
+<li>getchar 与 putchar</li>
+<li>gets 与 puts</li>
+</ul>
+<p>相比之下 printf 与 scanf的功能最为强大，但操作稍显复杂，后两种则功能简单，但针对性较强。做一下记录以备查询。</p>
+<h4 id="printf函数"><a href="#printf函数" class="headerlink" title="printf函数"></a>printf函数</h4><h5 id="功能：按照规定格式输出指定数据"><a href="#功能：按照规定格式输出指定数据" class="headerlink" title="功能：按照规定格式输出指定数据"></a>功能：按照规定格式输出指定数据</h5><p>一般形式：如图</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://dl2.img.timecdn.cn/2023/09/18/image.png!h.webp"></p>
+<p>​        格式控制:由“％”后跟格式字符组成。将输出数据转换为指定格式输出，字符串原样输出，转义字符对输出形式进行控制。</p>
+<h5 id="格式说明如图"><a href="#格式说明如图" class="headerlink" title="格式说明如图"></a>格式说明如图</h5><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://dl3.img.timecdn.cn/2023/09/18/image.png!h.webp"></p>
+<table>
+<thead>
+<tr>
+<th align="center">附加格式说明字符</th>
+<th align="center">说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-</td>
+<td align="center">输出的数字或字符以左对齐，右边填空格</td>
+</tr>
+<tr>
+<td align="center">0（数字）</td>
+<td align="center">输出的空位用0填充。</td>
+</tr>
+<tr>
+<td align="center">m（一个正整数）</td>
+<td align="center">输出数据的字段宽度。如果实际位数多于m，按实际位数输出；如果实际位数少于m，则补以空格或0。</td>
+</tr>
+<tr>
+<td align="center">n（一个正整数）</td>
+<td align="center">对实数，表示输出n位小数；对字符串，表示截取的字符个数。</td>
+</tr>
+<tr>
+<td align="center">l（字母）</td>
+<td align="center">输出长整型整数</td>
+</tr>
+</tbody></table>
+<h5 id="常见格式输出"><a href="#常见格式输出" class="headerlink" title="常见格式输出"></a>常见格式输出</h5><ul>
+<li>%d —— 以带符号的十进制形式输出整数</li>
+<li>%o —— 以无符号的八进制形式输出整数</li>
+<li>%x —— 以无符号的十六进制形式输出整数</li>
+<li>%u —— 以无符号的十进制形式输出整数</li>
+<li>%c —— 以字符形式输出单个字符</li>
+<li>%s —— 输出字符串</li>
+<li>%f —— 以小数点形式输出单、双精度实数</li>
+<li>%e —— 以标准指数形式输出单、双精度实数</li>
+<li>%g —— 选用输出宽度较小的格式输出实数</li>
+</ul>
+<h6 id="d格式符"><a href="#d格式符" class="headerlink" title="%d格式符"></a>%d格式符</h6><p>格式： %[-][0][m][l]d</p>
+<p>说明:</p>
+<ul>
+<li>%d 按整型数据的实际长度输出。</li>
+<li>%[0]md 以m指定的字段宽度输出，如果数据的位数小于m，则左端补以空格；若m前面有“0”，则左端补以0。</li>
+<li>%-md 以m指定的字段宽度输出，左对齐。</li>
+<li>%ld 输出长整型数据。</li>
+</ul>
+<h6 id="c格式符"><a href="#c格式符" class="headerlink" title="%c格式符"></a>%c格式符</h6><p>格式：%[m]c</p>
+<p>说明：输出一个字符。输出数据可以是单个字符，或一个范围在0～255之间的整数。</p>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line">main( )</span><br><span class="line">&#123;   <span class="type">char</span> x=‘a’;  <span class="type">int</span> i=<span class="number">98</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c,%d\n&quot;</span>,x,x);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c,%d\n&quot;</span>,i,i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// output</span></span><br><span class="line">a,<span class="number">97</span></span><br><span class="line">b,<span class="number">98</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="s格式符"><a href="#s格式符" class="headerlink" title="%s格式符"></a>%s格式符</h6><p>格式：%[-][m][.n]s</p>
+<p>说明:</p>
+<ul>
+<li>%s 直接输出指定字符串。</li>
+<li>%ms 输出字符串占m列，右对齐。m小于字符串长度时原样输出，大于字符串长度时不足补空格，下同。</li>
+<li>%-ms 输出字符串占m列，左对齐。</li>
+<li>%m.ns 输出字符串前n个字符，占m列，右对齐。</li>
+</ul>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%3s,%-6s,%-5.2s,%4.3s,%.3s,&quot;</span>,<span class="string">&quot;hello&quot;</span>, </span><br><span class="line">    <span class="string">&quot;hello&quot;</span>,<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">输出结果:</span><br><span class="line">hello,hello ,he   , hel,hel,</span><br></pre></td></tr></table></figure>
+
+<h6 id="f格式符"><a href="#f格式符" class="headerlink" title="%f格式符"></a>%f格式符</h6><p>格式： %[-][0][m][.n][l]f</p>
+<p>说明：</p>
+<ul>
+<li>%f 整数部分全部输出，小数部分输出6位（四舍五入）。</li>
+<li>0 右边补0满足小数位数，或左边补0满足m列</li>
+<li>%m.nf 输出数据共占m列，小数占n位，右对齐。只有m时，当m大于字符串长度则需补足m列，当m小于字符串长度则与%f同</li>
+<li>%-m.nf 输出数据共占m列，小数占n位，左对齐。</li>
+<li>%lf 以双精度输出</li>
+</ul>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> f=<span class="number">3.14159</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%f,%07.3f,%-7.3f,%10f,%.3f,&quot;</span>,f,f,f,f,f);</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// output:</span></span><br><span class="line"><span class="number">3.141590</span>,<span class="number">003.142</span>,<span class="number">3.142</span>  ,  <span class="number">3.141590</span>,<span class="number">3.142</span>,</span><br></pre></td></tr></table></figure>
+
+<h6 id="e格式符"><a href="#e格式符" class="headerlink" title="%e格式符"></a>%e格式符</h6><p>格式：%[-][0][m][.n]e</p>
+<p>说明：</p>
+<ul>
+<li>%e：输出数据共占13位，其中整数部分为1位非零数字，小数点占1位，小数部分为6位，指数部分e占1位，指数符号占1位，指数为3位。若输出数据为负数，还应增加一位整数部分的符号位。</li>
+<li>%m.ne 输出占m列，小数位为n项(四舍五入)。m小于输出宽度时原样输出，大于输出宽度时补足空位</li>
+<li>–设置左对齐</li>
+</ul>
+<p>如下图</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://dl.img.timecdn.cn/2023/09/18/image.png!h.webp"></p>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n,%10.1e&quot;</span>,<span class="number">31.5</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// output</span></span><br><span class="line">,  <span class="number">3.2e+001</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="o、-x和-u格式符"><a href="#o、-x和-u格式符" class="headerlink" title="%o、%x和%u格式符"></a>%o、%x和%u格式符</h6><p>格式： %[-][0][m][l]o(x或u)</p>
+<p>说明：</p>
+<p>将内存单元中的二进制数（包括符号位）直接转换成八进制数、十六进制或十进制数输出。</p>
+<ul>
+<li>%o 输出无符号八进制</li>
+<li>%x 输出无符号十六进制</li>
+<li>%u 输出无符号十进制</li>
+</ul>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n%d,%o,%x,%u&quot;</span>,i,i,i,i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// output</span></span><br><span class="line"><span class="number">-1</span>,<span class="number">37777777777</span>,ffffffff,<span class="number">4294967295</span></span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> ch1 = <span class="number">255</span>; <span class="comment">// 1111 1111  ,1字节</span></span><br><span class="line">    <span class="type">char</span> ch2 = <span class="number">-128</span>;</span><br><span class="line">    <span class="comment">// %hh 限定了字符为8位一个字节 </span></span><br><span class="line">    <span class="comment">// %hhd 有符号十进制字符型 %hhu 无符号十进制字符型</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n\n%hhd,%hhu,%hho,%hhx&quot;</span>,ch2,ch1,ch1,ch1);<span class="comment">//128,255,377,ff</span></span><br><span class="line">    <span class="comment">// %h 限定了16位2个字节     </span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">short</span> sh1 = <span class="number">65535</span>; <span class="comment">// 1111 1111 1111 1111 ,2字节</span></span><br><span class="line">    <span class="type">short</span> sh2 = <span class="number">-32767</span>; </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n%hu,%hd,%ho,%hx&quot;</span>,sh2,sh1,sh1,sh1);  <span class="comment">// 32769,-1,177777,ffff</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// %l 限定了32位4个字节 </span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> ulong = <span class="number">4294967295</span>; <span class="comment">//1111 1111 1111 1111 1111 1111 1111 1111  ,4字节</span></span><br><span class="line">    <span class="type">long</span> slong = <span class="number">-2147483647</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n%ld,%lu,%lo,%lx&quot;</span>,slong,ulong,ulong,ulong); <span class="comment">// -2147483647,4294967295,37777777777,ffffffff</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// %ll 限定了64位8个字节 </span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ull= <span class="number">4294967295</span>;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ll = <span class="number">-2147483647</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n%lld,%llu,%llo,%llx&quot;</span>,ll,ull,ull,ull);  <span class="comment">// -2147483647,4294967295,37777777777,ffffffff</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// %e指数输出</span></span><br><span class="line">    <span class="type">long</span> <span class="type">double</span> lb = <span class="number">198888888888</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n%Lf,%Le,%Lo,%Lx,%Lg&quot;</span>,lb,lb,lb,lb,lb);  <span class="comment">// 0.000000,5.180393e-317,47776740,9ffdd0,5.18037e-317</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n%La,%LA&quot;</span>,lb,lb); <span class="comment">// 输出十六进制的指数形式  0x0.000000p-1022,0X0.000000P-1022</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="g格式符"><a href="#g格式符" class="headerlink" title="%g格式符"></a>%g格式符</h6><p>​        根据数值的大小，自动选择用f格式或e格式输出实数。输出时选择占宽度较小的一种，且不输出无意义的零。</p>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">float</span> f=<span class="number">3.14159</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n%e,%f,%lf,%g&quot;</span>,f,f,f,f);</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// output</span></span><br><span class="line"><span class="number">3.141590e+000</span>,<span class="number">3.141590</span>,<span class="number">3.141590</span>,<span class="number">3.14159</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="使用printf的注意事项"><a href="#使用printf的注意事项" class="headerlink" title="使用printf的注意事项"></a>使用printf的注意事项</h5><ul>
+<li>不同类型的数据应使用相应类型的格式字符说明其输出形式，以保证显示结果符合预期。</li>
+<li>格式字符中，除了X、E、G外，其他均用小写字母，如“%d”不能写成“%D”。</li>
+<li>如需输出双引号，应在“格式控制”中表示为转义字符的形式并用单引号引起来，即“\””。</li>
+<li>如需输出字符“％”，在“格式控制”中用连续两个“％”即可。</li>
+</ul>
+<p>如：printf(“%d%%”,10);</p>
+<ul>
+<li>当“格式控制”中格式符个数少于输出表中的输出项时，多余的输出项不予输出。</li>
+<li>当“格式符”多于输出项时，多出的格式符输出结果为不定值。</li>
+</ul>
+<h4 id="scanf函数"><a href="#scanf函数" class="headerlink" title="scanf函数"></a>scanf函数</h4><p>​        与printf函数一样，scanf函数也是遵守格式化（format）原则，所谓格式化，是该函数预先给程序员定义了一批输入格式，程序员可以选择其中的某些格式，遵守这些格式，scanf函数就可以按照指定的格式来接收键盘的输入数据了。</p>
+<p>​		scanf函数只能在控制台程序中使用，有窗口的界面程序无法通过scanf接收按键。当控制台中出现闪烁的光标时，表示程序在等待用户输入数据。在控制台程序中，一般以回车键代表数据输入完毕，下达命令，指示程序开始工作。scanf函数可以接收多个任意类型的数据，但需严格遵守format格式，否则会出错。</p>
+<h5 id="功能：要求用户从键盘上输入指定格式的数据。"><a href="#功能：要求用户从键盘上输入指定格式的数据。" class="headerlink" title="功能：要求用户从键盘上输入指定格式的数据。"></a>功能：要求用户从键盘上输入指定格式的数据。</h5><p>一般形式：如图</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://dl2.img.timecdn.cn/2023/09/18/image7cb214920963a2a4.png!h.webp"></p>
+<p>功能：要求用户从键盘上输入指定格式的数据。</p>
+<p>说明：如果数据不止一个，应在数据之间用一个或多个空格间隔，也可以用回车键或跳格键tab间隔。</p>
+<h5 id="scanf格式控制"><a href="#scanf格式控制" class="headerlink" title="scanf格式控制"></a>scanf格式控制</h5><p>格式控制</p>
+<table>
+<thead>
+<tr>
+<th align="center">格式符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">d</td>
+<td align="center">用于输入十进制整数</td>
+</tr>
+<tr>
+<td align="center">o</td>
+<td align="center">用于输入八进制形整数</td>
+</tr>
+<tr>
+<td align="center">x</td>
+<td align="center">用于输入十六进制整数</td>
+</tr>
+<tr>
+<td align="center">c</td>
+<td align="center">用于输入一个字符</td>
+</tr>
+<tr>
+<td align="center">s</td>
+<td align="center">用于输入字符串，并将字符串送到一个字符数组中。输入时以非空白字符开始， 第一个空白字符结束。字符串以串结束标志“\0”作为其最后一个字符。</td>
+</tr>
+<tr>
+<td align="center">f</td>
+<td align="center">用于输入实数。输入时用小数点形式或指数形式均可。(输入双精度必须用%lf，否则不能正常输入)</td>
+</tr>
+<tr>
+<td align="center">e</td>
+<td align="center">与f作用相同</td>
+</tr>
+</tbody></table>
+<hr>
+<p>附加格式</p>
+<table>
+<thead>
+<tr>
+<th align="center">格式字符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*</td>
+<td align="center">表示本输入项在输入后不赋给相应的变量。（不存储）</td>
+</tr>
+<tr>
+<td align="center">l（字母）</td>
+<td align="center">用于输入长整型和双精度实型数据</td>
+</tr>
+<tr>
+<td align="center">m（一个正整数）</td>
+<td align="center">用于输入长整型和双精度实型数据</td>
+</tr>
+</tbody></table>
+<h5 id="scanf函数的格式字符串的组成"><a href="#scanf函数的格式字符串的组成" class="headerlink" title="scanf函数的格式字符串的组成"></a>scanf函数的格式字符串的组成</h5><ul>
+<li><strong>格式符</strong></li>
+</ul>
+<p>​		和printf函数类似，scanf函数的格式字符串以%开始，以一个格式字符结束，中间可以插入附加字符。格式符告诉了scanf函数该读取什么样的数据。</p>
+<ul>
+<li><strong>空白符</strong></li>
+</ul>
+<p>​		空白符可以是空格(space，用空格键输入)、制表符(tab，用Tab键输入)和新行符(newline，用回车键输入)，或者它们的组合</p>
+<ul>
+<li><strong>非空白符</strong></li>
+</ul>
+<p>​        除去格式说明符合空白符之外，就是非空白符。非空白符在用户输入的时候，也必须一并输入。非空白符使scanf() 在缓冲区中读一个匹配的字符并将这个字符忽略。例如，”%d,%d”使scanf()先读入一个整数，接着必须要读入一个逗号，读入到逗号后，表示格式匹配，将读入的逗号丢弃，而不像读入的整数存储到某个内存空间。读入逗号后，接着读入另一个整数。如发现不能匹配格式字符串，比如没有读到逗号，scanf()返回，读入失败。</p>
+<h5 id="使用scanf注意事项"><a href="#使用scanf注意事项" class="headerlink" title="使用scanf注意事项"></a>使用scanf注意事项</h5><ul>
+<li>注意变量表列中，应该是<strong>变量的地址</strong>。变量的地址通过求地址符&amp;得到。所以在写代码时千万不要遗漏&amp;符号。</li>
+<li>如果格式字符串中有非空白字符，也就是除了格式控制字符和空白字符之外的字符，则用户在输入的时候一定也要输入这些字符。否则将出现不匹配格式控制字符串的情况。为了使用户正确输入，编程时一定要考虑到用户是否清楚如何输入，最好在需要用户输入前提示如何输入的格式。</li>
+<li>在用%c格式符时，空格字符和转义字符都被当作有效字符输入</li>
+<li>以回车作为下达开始解析命令。整个输入以回车结束。</li>
+</ul>
+<p>如果输入的数据满足了scanf对需要，则输入结束，如果回车后数据不够，则回车只当作一个空白符。</p>
+<ul>
+<li>scanf解析数据，下列情况认为解析出来一个数据：</li>
+</ul>
+<p>读入非字符型数据时，遇到空白字符。有宽度指示时，读入到相应的宽度。如%4d，则只解析4个数字即认为读入这个整数完毕。</p>
+<ul>
+<li>读取双精度double浮点数时，最好使用%lf输入，使用%f可能会导致精度损失甚至读取失败。</li>
+</ul>
+<h5 id="scanf使用示例"><a href="#scanf使用示例" class="headerlink" title="scanf使用示例"></a>scanf使用示例</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1）可以指定输入的数据所占据的字符个数，scanf函数自动按照指示截取所需长度的数据。如：</span></span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%3d%3d&quot;</span>,&amp;i,&amp;j);  <span class="comment">// 输入：1234567↙</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d,%d&quot;</span>,i,j);  <span class="comment">// 输出  123，456</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2）%后面的*格式符，用来表示在解析时，将读入的数据忽略不赋给任何变量。如：</span></span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %*d %d&quot;</span>,&amp;i,&amp;j); <span class="comment">// 输入: 123 456 789 </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d,%d&quot;</span>,i,j);    <span class="comment">// 输出: 123,789</span></span><br><span class="line"><span class="comment">// 3）输入数据时不能指定精度。如：</span></span><br><span class="line">    <span class="type">float</span> f;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%7.2f&quot;</span>,&amp;f); <span class="comment">// 输入 123.456 </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%f23&quot;</span>,f); <span class="comment">// 输出 0.00000023 </span></span><br><span class="line"><span class="comment">// 4) 输入双精度数使用%lf</span></span><br><span class="line">    <span class="comment">// 输入双精度浮点数时，务必用%lf，如下错误</span></span><br><span class="line">    <span class="type">double</span> db;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>,&amp;db);  <span class="comment">//输入： 123.456</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%f&quot;</span>,db); <span class="comment">// 输出 ： 0.000000</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="字符输入输出（getchar-putchar）"><a href="#字符输入输出（getchar-putchar）" class="headerlink" title="字符输入输出（getchar&#x2F;putchar）"></a>字符输入输出（getchar&#x2F;putchar）</h4><p>​		有些时候，仅仅为了在显示器屏幕上打印或从控制台获取一个字符，此时使用功能强大的printf与scanf函数，则显得过于繁琐，C提供了一个库函数putchar&#x2F;getchar来完成这个简单的任务。</p>
+<h5 id="putchar"><a href="#putchar" class="headerlink" title="putchar"></a>putchar</h5><p>putchar 函数是字符输出函数， 其功能是在显示器上打印单个字符。putchar函数是一个标准的C语言库函数，它的函数原型在头文件“stdio.h”中。</p>
+<h6 id="putchar函数的一般格式："><a href="#putchar函数的一般格式：" class="headerlink" title="putchar函数的一般格式："></a>putchar函数的一般格式：</h6><p><code>putchar(字符数据);</code></p>
+<p>其中的putchar是函数名称。</p>
+<h6 id="可以输出的字符类型："><a href="#可以输出的字符类型：" class="headerlink" title="可以输出的字符类型："></a>可以输出的字符类型：</h6><ul>
+<li>字符数据可以是一个字符型变量，如：char c_var&#x3D; ‘a’; putchar(c_var);</li>
+<li>字符数据也可以是一个字符常量，如putchar(‘a’);输出结果：a</li>
+<li>字符数据还可以是一个整数。整数可以是十进制整数，如：putchar(97);输出结果：a</li>
+<li>字符数据还可以是一个表达式，只要结果是255以内的整数即可。如：</li>
+</ul>
+<p>putchar(‘a’+25);输出结果：z</p>
+<ul>
+<li>字符数据可以是转义字符。如：</li>
+</ul>
+<p><code>putchar(‘\n’);结果输出一个换行。putchar(‘\007’); 输出一个提示音</code></p>
+<h5 id="getchar"><a href="#getchar" class="headerlink" title="getchar"></a>getchar</h5><p>这个函数和前面介绍的putchar函数刚好相反。</p>
+<p>getchar 函数是得到字符输入函数，其功能是得到用户输入的一个字符。getchar函数是一个标准的C语言库函数，它的函数原型在头文件“stdio.h”中。</p>
+<h6 id="getchar函数的一般格式是："><a href="#getchar函数的一般格式是：" class="headerlink" title="getchar函数的一般格式是："></a>getchar函数的一般格式是：</h6><p><code>char ch; ch=getchar();</code></p>
+<p>用户输入的字符就赋给了ch变量。如：</p>
+<p><code>char ch; ch=getchar();  // 获取输入的字符 printf(&quot;%c&quot;,ch);</code></p>
+<h4 id="字符串输入输出函数-（gets与puts）"><a href="#字符串输入输出函数-（gets与puts）" class="headerlink" title="字符串输入输出函数 （gets与puts）"></a>字符串输入输出函数 （gets与puts）</h4><h5 id="4puts"><a href="#4puts" class="headerlink" title="4puts"></a>4puts</h5><p>puts函数功能非常单一，在显示器屏幕上输出一个字符串，并换行。</p>
+<p>一般形式：</p>
+<p><code>puts(字符串);</code></p>
+<p>如：</p>
+<p><code>puts(&quot;你好啊~&quot;); 输出结果: 你好啊~</code></p>
+<h5 id="gets"><a href="#gets" class="headerlink" title="gets"></a>gets</h5><p>​       gets从标准输入设备读字符串函数。可以无限读取，不会判断上限，以回车结束读取，所以程序员应该确保buffer的空间足够大，以便在执行读操作时不发生溢出。此函数在stdio.h头文件中定义的。</p>
+<p>功能</p>
+<p>​        从stdio流中读取字符串，直至接受到换行符或EOF时停止，并将读取的结果存放在buffer指针所指向的字符数组中。换行符不作为读取串的内容，读取的换行符被转换为‘\0’空字符，并由此来结束字符串。 </p>
+<p>返回值</p>
+<p>​    读入成功，返回与参数buffer相同的指针；读入过程中遇到EOF(End-of-File)或发生错误，返回NULL指针。所以在遇到返回值为NULL的情况，要用ferror或feof函数检查是发生错误还是遇到EOF。 </p>
+<p>示例：</p>
+<p>​    </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span>   </span></span><br><span class="line">    <span class="type">void</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">       <span class="type">char</span> buf[<span class="number">20</span>];  <span class="comment">//不要char*p，然后gets(p)，这是错误的，因为p没有指向有效的内存，它可能指向任何非法地址 ，造成非法访问异常                 </span></span><br><span class="line">       gets(buf);</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, buf);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>与gets&#x2F;puts类似的还有fgets与fputs，它们一般用于对文件的操作。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/avatar.webp" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/avatar.webp" title="头像" alt="头像"></a><div class="post-copyright__author_name">因是</div><div class="post-copyright__author_desc">风无定相，云无常态。</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://blog.unto.eu.org/posts/d04fe4f1/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://blog.unto.eu.org/posts/d04fe4f1/')">C语言 基本输入输出函数</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/reward/wechat.webp" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/reward/wechat.webp" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/reward/alipay.webp" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/reward/alipay.webp" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://blog.unto.eu.org/posts/d04fe4f1/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=C语言 基本输入输出函数&amp;url=https://blog.unto.eu.org/posts/d04fe4f1/&amp;pic=https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/9.webp?_r_=74c0af08-263d-f0e4-076b-2c58ad8b477e" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.unto.eu.org" target="_blank">Palpitate</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/C%E8%AF%AD%E8%A8%80/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>C语言<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E5%87%BD%E6%95%B0/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>函数<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E7%BC%96%E7%A8%8B/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>编程<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/6.webp?_r_=500c8343-25c5-6101-8188-160225ebd568" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/c71308be/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/10.webp?_r_=9fb7d2a7-1d2a-efd9-16eb-a484236cb7e1" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">使用GitHub Actions自动部署Hexo</div></div></a></div><div class="next-post pull-right"><a href="/posts/b8d26614/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/6.webp?_r_=500c8343-25c5-6101-8188-160225ebd568" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">使用ensp模拟器中的防火墙（USG6000V）配置NAT</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/avatar.webp" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">学习、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章阅读</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#printf%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">printf函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%EF%BC%9A%E6%8C%89%E7%85%A7%E8%A7%84%E5%AE%9A%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E6%8C%87%E5%AE%9A%E6%95%B0%E6%8D%AE"><span class="toc-number">2.1.</span> <span class="toc-text">功能：按照规定格式输出指定数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E8%AF%B4%E6%98%8E%E5%A6%82%E5%9B%BE"><span class="toc-number">2.2.</span> <span class="toc-text">格式说明如图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA"><span class="toc-number">2.3.</span> <span class="toc-text">常见格式输出</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#d%E6%A0%BC%E5%BC%8F%E7%AC%A6"><span class="toc-number">2.3.1.</span> <span class="toc-text">%d格式符</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#c%E6%A0%BC%E5%BC%8F%E7%AC%A6"><span class="toc-number">2.3.2.</span> <span class="toc-text">%c格式符</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#s%E6%A0%BC%E5%BC%8F%E7%AC%A6"><span class="toc-number">2.3.3.</span> <span class="toc-text">%s格式符</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#f%E6%A0%BC%E5%BC%8F%E7%AC%A6"><span class="toc-number">2.3.4.</span> <span class="toc-text">%f格式符</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#e%E6%A0%BC%E5%BC%8F%E7%AC%A6"><span class="toc-number">2.3.5.</span> <span class="toc-text">%e格式符</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#o%E3%80%81-x%E5%92%8C-u%E6%A0%BC%E5%BC%8F%E7%AC%A6"><span class="toc-number">2.3.6.</span> <span class="toc-text">%o、%x和%u格式符</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#g%E6%A0%BC%E5%BC%8F%E7%AC%A6"><span class="toc-number">2.3.7.</span> <span class="toc-text">%g格式符</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8printf%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">2.4.</span> <span class="toc-text">使用printf的注意事项</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scanf%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">scanf函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%EF%BC%9A%E8%A6%81%E6%B1%82%E7%94%A8%E6%88%B7%E4%BB%8E%E9%94%AE%E7%9B%98%E4%B8%8A%E8%BE%93%E5%85%A5%E6%8C%87%E5%AE%9A%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E6%8D%AE%E3%80%82"><span class="toc-number">3.1.</span> <span class="toc-text">功能：要求用户从键盘上输入指定格式的数据。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#scanf%E6%A0%BC%E5%BC%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">3.2.</span> <span class="toc-text">scanf格式控制</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#scanf%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">3.3.</span> <span class="toc-text">scanf函数的格式字符串的组成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8scanf%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.4.</span> <span class="toc-text">使用scanf注意事项</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#scanf%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.5.</span> <span class="toc-text">scanf使用示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%88getchar-putchar%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">字符输入输出（getchar&#x2F;putchar）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#putchar"><span class="toc-number">4.1.</span> <span class="toc-text">putchar</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#putchar%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F%EF%BC%9A"><span class="toc-number">4.1.1.</span> <span class="toc-text">putchar函数的一般格式：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E8%BE%93%E5%87%BA%E7%9A%84%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="toc-number">4.1.2.</span> <span class="toc-text">可以输出的字符类型：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#getchar"><span class="toc-number">4.2.</span> <span class="toc-text">getchar</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#getchar%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F%E6%98%AF%EF%BC%9A"><span class="toc-number">4.2.1.</span> <span class="toc-text">getchar函数的一般格式是：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0-%EF%BC%88gets%E4%B8%8Eputs%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">字符串输入输出函数 （gets与puts）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4puts"><span class="toc-number">5.1.</span> <span class="toc-text">4puts</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#gets"><span class="toc-number">5.2.</span> <span class="toc-text">gets</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/b8d26614/" title="使用ensp模拟器中的防火墙（USG6000V）配置NAT"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/6.webp?_r_=500c8343-25c5-6101-8188-160225ebd568" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg'" alt="使用ensp模拟器中的防火墙（USG6000V）配置NAT"/></a><div class="content"><a class="title" href="/posts/b8d26614/" title="使用ensp模拟器中的防火墙（USG6000V）配置NAT">使用ensp模拟器中的防火墙（USG6000V）配置NAT</a><time datetime="2023-09-20T04:26:03.000Z" title="发表于 2023-09-20 12:26:03">2023-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d04fe4f1/" title="C语言 基本输入输出函数"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/9.webp?_r_=74c0af08-263d-f0e4-076b-2c58ad8b477e" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg'" alt="C语言 基本输入输出函数"/></a><div class="content"><a class="title" href="/posts/d04fe4f1/" title="C语言 基本输入输出函数">C语言 基本输入输出函数</a><time datetime="2023-09-18T14:47:48.000Z" title="发表于 2023-09-18 22:47:48">2023-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c71308be/" title="使用GitHub Actions自动部署Hexo"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/10.webp?_r_=9fb7d2a7-1d2a-efd9-16eb-a484236cb7e1" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg'" alt="使用GitHub Actions自动部署Hexo"/></a><div class="content"><a class="title" href="/posts/c71308be/" title="使用GitHub Actions自动部署Hexo">使用GitHub Actions自动部署Hexo</a><time datetime="2023-08-05T14:19:29.000Z" title="发表于 2023-08-05 22:19:29">2023-08-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d2ab7f2a/" title="Hexo-Matery主题配置Twikoo评论系统"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/3.webp?_r_=5aaafffe-c781-b90a-3885-1433fe3012c5" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg'" alt="Hexo-Matery主题配置Twikoo评论系统"/></a><div class="content"><a class="title" href="/posts/d2ab7f2a/" title="Hexo-Matery主题配置Twikoo评论系统">Hexo-Matery主题配置Twikoo评论系统</a><time datetime="2023-08-01T12:49:33.000Z" title="发表于 2023-08-01 20:49:33">2023-08-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a839bc6b/" title="使用 GitHub Actions 云编译OpenWrt"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/matery/source/medias/banner/5.webp?_r_=b419c872-bc1a-6307-7390-e40a684335e3" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg'" alt="使用 GitHub Actions 云编译OpenWrt"/></a><div class="content"><a class="title" href="/posts/a839bc6b/" title="使用 GitHub Actions 云编译OpenWrt">使用 GitHub Actions 云编译OpenWrt</a><time datetime="2022-01-15T14:45:06.000Z" title="发表于 2022-01-15 22:45:06">2022-01-15</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="deal_link" href="mailto:byn@yncn.eu.org" title="email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/276635800" title="Bilibili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a><img class="footer_mini_logo" title="返回顶部" alt="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/avatar.webp" size="50px"/><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/byncn" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="deal_link" href="/atom.xml" title="RSS"><i class="anzhiyufont anzhiyu-icon-rss"></i></a></div><div id="workboard"><img class="workSituationImg boardsign" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/fishingwork.svg" alt="距离月入25k也就还差一个大佬带我~" title="距离月入25k也就还差一个大佬带我~"/><div id="runtimeTextTip"></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2021 - 2024 By <a class="footer-bar-link" href="/" title="因是" target="_blank">因是</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">2</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.yncn.eu.org/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">工具</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://cn.office-converter.com/" title="Converter转换器"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cn.office-converter.com/favicon.ico" alt="Converter转换器"/><span class="back-menu-item-text">Converter转换器</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.deepl.com/translator" title="DeepL翻译"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://static.deepl.com/img/favicon/favicon_96.png" alt="DeepL翻译"/><span class="back-menu-item-text">DeepL翻译</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://smms.app/" title="SM.MS图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://smms.app/assets/images/og.png" alt="SM.MS图床"/><span class="back-menu-item-text">SM.MS图床</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://ai.yncn.eu.org/" title="CF AI Web"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/favicon.ico" alt="CF AI Web"/><span class="back-menu-item-text">CF AI Web</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=1018898283&amp;server=tencent"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AC2100/" style="font-size: 0.88rem;">AC2100<sup>1</sup></a><a href="/tags/Blog/" style="font-size: 0.88rem;">Blog<sup>4</sup></a><a href="/tags/CDN/" style="font-size: 0.88rem;">CDN<sup>1</sup></a><a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 0.88rem;">C语言<sup>1</sup></a><a href="/tags/GitHub/" style="font-size: 0.88rem;">GitHub<sup>3</sup></a><a href="/tags/Hexo/" style="font-size: 0.88rem;">Hexo<sup>4</sup></a><a href="/tags/Matery/" style="font-size: 0.88rem;">Matery<sup>4</sup></a><a href="/tags/NAT/" style="font-size: 0.88rem;">NAT<sup>1</sup></a><a href="/tags/OneManager/" style="font-size: 0.88rem;">OneManager<sup>1</sup></a><a href="/tags/Onedrive/" style="font-size: 0.88rem;">Onedrive<sup>1</sup></a><a href="/tags/Openwrt/" style="font-size: 0.88rem;">Openwrt<sup>2</sup></a><a href="/tags/Twikoo/" style="font-size: 0.88rem;">Twikoo<sup>1</sup></a><a href="/tags/ensp/" style="font-size: 0.88rem;">ensp<sup>1</sup></a><a href="/tags/jsDelivr/" style="font-size: 0.88rem;">jsDelivr<sup>1</sup></a><a href="/tags/%E4%BF%AE%E5%A4%8D/" style="font-size: 0.88rem;">修复<sup>1</sup></a><a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 0.88rem;">函数<sup>1</sup></a><a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 0.88rem;">安卓<sup>1</sup></a><a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 0.88rem;">编程<sup>1</sup></a><a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 0.88rem;">网盘<sup>1</sup></a><a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 0.88rem;">路由器<sup>2</sup></a><a href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99/" style="font-size: 0.88rem;">防火墙<sup>1</sup></a></div></div><hr/></div></div><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keybordList"><div class="keybordItem"><div class="keyGroup"><div class="key">shift K</div></div><div class="keyContent"><div class="content">关闭快捷键功能</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift A</div></div><div class="keyContent"><div class="content">打开/关闭中控台</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift D</div></div><div class="keyContent"><div class="content">深色/浅色显示模式</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift S</div></div><div class="keyContent"><div class="content">站内搜索</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift R</div></div><div class="keyContent"><div class="content">随机访问</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift H</div></div><div class="keyContent"><div class="content">返回首页</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift F</div></div><div class="keyContent"><div class="content">友链鱼塘</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift L</div></div><div class="keyContent"><div class="content">友链页面</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift P</div></div><div class="keyContent"><div class="content">关于本站</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift I</div></div><div class="keyContent"><div class="content">原版/本站右键菜单</div></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7902333176" server="tencent" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/7902333176&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("10/12/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2021 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 因是 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
+  var grt = new Date("10/12/2021 00:00:00"); //设置网站上线时间
+  var now = new Date();
+  var dnum;
+  var hnum;
+  var mnum;
+  var snum;
+  var nowHour;
+
+  // 计算并更新天数、小时数、分钟数和秒数
+  function updateTime() {
+    now = new Date(); // 更新 now 的值
+    nowHour = now.getHours(); // 更新 nowHour 的值
+    var days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
+    }
+    var minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    var seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+  }
+
+  // 更新网页中显示的网站运行时间
+  function updateHtml() {
+    const footer = document.getElementById("footer");
+    if (!footer) return
+    let currentTimeHtml = "";
+    if (nowHour < 18 && nowHour >= 9) {
+      // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    } else {
+      // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+      let img = document.querySelector("#workboard .workSituationImg");
+      if (img != null) {
+        img.src = "https://cdn.jsdelivr.net/gh/byncn/cdn@master/anzhiyu/source/img/offwork.svg";
+        img.title = "下班了就该开开心心的玩耍，嘿嘿~";
+        img.alt = "下班了就该开开心心的玩耍，嘿嘿~";
+      }
+
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    }
+
+    if (document.getElementById("runtimeTextTip")) {
+      document.getElementById("runtimeTextTip").innerHTML = currentTimeHtml;
+    }
+  }
+
+  setInterval(() => {
+    updateTime();
+    updateHtml();
+  }, 1000);
+})();</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo-one-swart.vercel.app',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-one-swart.vercel.app',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo-one-swart.vercel.app',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-S3XQ7SSTWR', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
