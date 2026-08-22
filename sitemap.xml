@@ -2,150 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.unto.eu.org/worldViews/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/posts/ca093fb9/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/posts/d224e079/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/manifest.json</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/about/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/album/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/archives/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/categories/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/dailyPhoto/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/essay/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/link/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/music/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/solarTerm/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/tags/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/wordScenery/</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.unto.eu.org/json/music.json</loc>
-    
-    <lastmod>2026-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.unto.eu.org/posts/4a17b156/</loc>
     
     <lastmod>2026-08-22</lastmod>
@@ -237,6 +93,150 @@
   
   <url>
     <loc>https://blog.unto.eu.org/posts/bf2f1bbe/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/posts/ca093fb9/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/posts/d224e079/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/manifest.json</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/about/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/album/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/archives/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/categories/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/dailyPhoto/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/essay/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/json/music.json</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/link/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/music/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/solarTerm/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/tags/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/wordScenery/</loc>
+    
+    <lastmod>2026-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.unto.eu.org/worldViews/</loc>
     
     <lastmod>2026-08-22</lastmod>
     
